@@ -18,7 +18,6 @@ import { HousingLocation } from '../housinglocation';
   `,
   styleUrls: ['./home.component.css']
 })
-
 export class HomeComponent {
   readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
