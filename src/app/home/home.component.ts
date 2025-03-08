@@ -26,13 +26,15 @@ import { HousingService } from '../housing.service';
 export class HomeComponent {
   readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
-  readonly housingLocations: HousingLocation[] = [];
+  housingLocations: HousingLocation[] = [];
 
   filteredLocations: HousingLocation[] = [];
 
   constructor(private housingService: HousingService) {
-    this.housingLocations = this.housingService.getAllHousingLocations();
-    this.filteredLocations = this.housingLocations;
+    this.housingService.getAllHousingLocations().then((list: HousingLocation[]) => {
+      this.housingLocations = list;
+      this.filteredLocations = list;
+    });
   }
 
   filterResults(text: string) {
